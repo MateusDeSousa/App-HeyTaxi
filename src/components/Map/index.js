@@ -2,13 +2,22 @@ import React, { Component } from 'react';
 import MapView from 'react-native-maps'
 import Search from '../Search/index'
 import Directions from '../Directions/index'
-
+import {Platform, PixelRatio} from 'react-native'
 import { View } from 'react-native';
+
+
 
 export default class Map extends Component {
     state = {
         region: null,
         destination: null
+    }
+
+    getPixelSize(pixels){
+        return Platform.select({
+            android: PixelRatio.getPixelSizeForLayoutSize(pixels),
+            ios: pixels
+        })
     }
 
     async componentDidMount(){
@@ -51,12 +60,22 @@ export default class Map extends Component {
                     region={region}
                     showsUserLocation={true}
                     loadingEnabled
+                    ref={c => this.mapView = c}
                 >
                     {destination && (
                         <Directions 
                             origin={region}
                             destination={destination}
-                            onReady={() => {}}
+                            onReady={result => {
+                                this.mapView.fitToCoordinates(result.coordinates, {
+                                    edgePadding: {
+                                        right: this.getPixelSize(30),
+                                        left: this.getPixelSize(30),
+                                        top: this.getPixelSize(30),
+                                        bottom: this.getPixelSize(30)
+                                    }
+                                })
+                            }}
                         />
                     )}
                 </MapView>

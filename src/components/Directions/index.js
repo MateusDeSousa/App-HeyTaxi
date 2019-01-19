@@ -7,7 +7,8 @@ const Directions = ({destination, origin, onReady}) => (
     <MapViewDirections
         origin={origin}
         destination={destination}
-        apikey={GOOGLE_MAPS_APIKEY}   
+        apikey={GOOGLE_MAPS_APIKEY}
+        onReady={onReady}   
         strokeWidth={3}
         strokeColor="hotpink"
     />
