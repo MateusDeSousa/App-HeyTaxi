@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import MapView from 'react-native-maps'
 import Search from '../Search/index'
+import Directions from '../Directions/index'
 
 import { View } from 'react-native';
 
 export default class Map extends Component {
     state = {
-        region: null
+        region: null,
+        destination: null
     }
 
     async componentDidMount(){
@@ -16,7 +18,7 @@ export default class Map extends Component {
                 this.setState({region: {latitude,longitude, latitudeDelta: 0.0143,
                     longitudeDelta: 0.0134}})
             },
-
+            //not success
             () => {
 
             },
@@ -27,9 +29,21 @@ export default class Map extends Component {
             }
         )
     }
+
+    handleLocationSelected = (data, {geometry}) => {
+        const {location: {lat: latitude, lng: longitude}} = geometry
+
+        this.setState({
+            destination: {
+                latitude,
+                longitude,
+                title: data.structured_formatting.main_text
+            }
+        })
+    }
     
     render (){
-        const {region} = this.state
+        const {region, destination} = this.state
         return(
             <View style={{flex: 1 }}>
                 <MapView
@@ -37,8 +51,17 @@ export default class Map extends Component {
                     region={region}
                     showsUserLocation={true}
                     loadingEnabled
-                />
-                <Search/>
+                >
+                    {destination && (
+                        <Directions 
+                            origin={region}
+                            destination={destination}
+                            onReady={() => {}}
+                        />
+                    )}
+                </MapView>
+                
+                <Search onLocationSelected={this.handleLocationSelected}/>
             </View>
         )
     }
