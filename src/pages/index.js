@@ -1,14 +1,6 @@
 import React from 'react';
-import MapView from 'react-native-maps'
+import Map from '../components/Map/index'
 
-import { View } from 'react-native';
-// import styles from './styles';
-
-const App = () => (
-
-    <View style={{flex: 1 }}>
-        
-    </View>
-)
+const App = () => <Map/>
 
 export default App;
