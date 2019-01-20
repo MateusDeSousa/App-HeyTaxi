@@ -31,7 +31,7 @@ export default class Search extends Component {
                 styles={{
                     container: {
                         position: 'absolute',
-                        top: Platform.select({ios: 65, android: 35}),
+                        top: Platform.select({ios: 50, android: 25}),
                         width: '100%',
                         //height: '140%'
                     },
@@ -40,13 +40,13 @@ export default class Search extends Component {
                         backgroundColor: 'transparent',
                         height: 55,
                         marginHorizontal: 20,
-                        borderTopWidth: 1,
+                        borderTopWidth: 0,
                         borderBottomWidth: 0
                     },
                     textInput: {
                         height: 54,
                         margin: 0,
-                        borderRadius: 0,
+                        borderRadius: 10,
                         paddingTop: 0,
                         paddingBottom: 0,
                         paddingLeft: 20,
@@ -54,7 +54,7 @@ export default class Search extends Component {
                         marginTop: 0,
                         marginLeft: 0,
                         marginRight: 0,
-                        elevation: 5,
+                        elevation: 10,
                         shadowColor: '#000',
                         shadowOpacity: 0.1,
                         shadowOffset: {x: 0, y: 0 },
@@ -68,7 +68,7 @@ export default class Search extends Component {
                         borderColor: '#DDD',
                         backgroundColor: '#FFF',
                         marginHorizontal: 20,
-                        elevation: 5,
+                        elevation: 10,
                         shadowColor: '#000',
                         shadowOpacity: 0.1,
                         shadowOffset: {x: 0, y: 0 },
@@ -77,7 +77,8 @@ export default class Search extends Component {
                         //marginBottom: 10
                     },
                     description: {
-                        fontSize: 15
+                        fontSize: 15,
+                        height: 30
                     },
                     row: {
                         padding: 20,
