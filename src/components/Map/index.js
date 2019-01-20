@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import MapView from 'react-native-maps'
+import React, { Component, Fragment } from 'react';
+import MapView, {Marker} from 'react-native-maps'
 import Search from '../Search/index'
 import Directions from '../Directions/index'
 import {Platform, PixelRatio} from 'react-native'
 import { View } from 'react-native';
-
+import markerImage from '../../assets/AppIcon.png'
 
 
 export default class Map extends Component {
@@ -63,20 +63,23 @@ export default class Map extends Component {
                     ref={c => this.mapView = c}
                 >
                     {destination && (
-                        <Directions 
-                            origin={region}
-                            destination={destination}
-                            onReady={result => {
-                                this.mapView.fitToCoordinates(result.coordinates, {
-                                    edgePadding: {
-                                        right: this.getPixelSize(30),
-                                        left: this.getPixelSize(30),
-                                        top: this.getPixelSize(30),
-                                        bottom: this.getPixelSize(30)
-                                    }
-                                })
-                            }}
-                        />
+                        <Fragment>
+                            <Directions 
+                                origin={region}
+                                destination={destination}
+                                onReady={result => {
+                                    this.mapView.fitToCoordinates(result.coordinates, {
+                                        edgePadding: {
+                                            right: this.getPixelSize(30),
+                                            left: this.getPixelSize(30),
+                                            top: this.getPixelSize(30),
+                                            bottom: this.getPixelSize(30)
+                                        }
+                                    })
+                                }}
+                            />
+                            <Marker coordinate={destination} image={markerImage} />
+                        </Fragment>
                     )}
                 </MapView>
                 
