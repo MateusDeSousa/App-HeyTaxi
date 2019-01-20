@@ -9,8 +9,8 @@ const Directions = ({destination, origin, onReady}) => (
         destination={destination}
         apikey={GOOGLE_MAPS_APIKEY}
         onReady={onReady}   
-        strokeWidth={3}
-        strokeColor="hotpink"
+        strokeWidth={4}
+        strokeColor="#666699"
     />
 )
 
