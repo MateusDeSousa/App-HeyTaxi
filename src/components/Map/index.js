@@ -4,7 +4,7 @@ import Search from '../Search/index'
 import Directions from '../Directions/index'
 import {Platform, PixelRatio} from 'react-native'
 import { View } from 'react-native';
-import markerImage from '../../assets/AppIcon.png'
+import markerImage from '../../assets/IconeChegada.png'
 import {LocationBox, LocationText} from './styles'
 
 export default class Map extends Component {
@@ -72,16 +72,14 @@ export default class Map extends Component {
                                         edgePadding: {
                                             right: this.getPixelSize(30),
                                             left: this.getPixelSize(30),
-                                            top: this.getPixelSize(40),
-                                            bottom: this.getPixelSize(30)
+                                            top: this.getPixelSize(50),
+                                            bottom: this.getPixelSize(50)
                                         }
                                     })
                                 }}
                             />
                             <Marker coordinate={destination} image={markerImage} >
-                                <LocationBox>
-                                    <LocationText>{destination.title}</LocationText>
-                                </LocationBox>
+                                
                             </Marker>
                         </Fragment>
                     )}
