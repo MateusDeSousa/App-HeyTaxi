@@ -5,12 +5,13 @@ import Directions from '../Directions/index'
 import {Platform, PixelRatio} from 'react-native'
 import { View } from 'react-native';
 import markerImage from '../../assets/IconeChegada.png'
-import {LocationBox, LocationText} from './styles'
+import {LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall, LocationTimeBox1} from './styles'
 
 export default class Map extends Component {
     state = {
         region: null,
-        destination: null
+        destination: null,
+        duration: null
     }
 
     getPixelSize(pixels){
@@ -52,7 +53,7 @@ export default class Map extends Component {
     }
     
     render (){
-        const {region, destination} = this.state
+        const {region, destination, duration} = this.state
         return(
             <View style={{flex: 1 }}>
                 <MapView
@@ -68,6 +69,7 @@ export default class Map extends Component {
                                 origin={region}
                                 destination={destination}
                                 onReady={result => {
+                                    this.setState({duration: Math.floor(result.duration)})
                                     this.mapView.fitToCoordinates(result.coordinates, {
                                         edgePadding: {
                                             right: this.getPixelSize(30),
@@ -80,6 +82,15 @@ export default class Map extends Component {
                             />
                             <Marker coordinate={destination} image={markerImage} >
                                 
+                            </Marker>
+                            <Marker coordinate={region} >
+                                <LocationBox>
+                                    <LocationTimeBox>
+                                        <LocationTimeText>{duration}</LocationTimeText>
+                                        <LocationTimeTextSmall> MIN</LocationTimeTextSmall>
+                                    </LocationTimeBox>
+                                    <LocationText>R. da Copaiba</LocationText>
+                                </LocationBox>
                             </Marker>
                         </Fragment>
                     )}
