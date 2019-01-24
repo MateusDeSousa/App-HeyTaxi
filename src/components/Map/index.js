@@ -2,11 +2,11 @@ import React, { Component, Fragment } from 'react';
 import MapView, {Marker} from 'react-native-maps'
 import Search from '../Search/index'
 import Directions from '../Directions/index'
-import Geocode from 'react-native-geocoding'
-import {Platform, PixelRatio} from 'react-native'
+import Details from '../Details/index'
+import {Platform, PixelRatio, BackHandler} from 'react-native'
 import { View } from 'react-native';
 import markerImage from '../../assets/IconeChegada.png'
-import {LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall, LocationTimeBox1} from './styles'
+import {LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall} from './styles'
 import Geocoder from 'react-native-geocoding';
 
 Geocoder.init('AIzaSyDzqc1dyShJJRsnSTaYBTNtTd_gi2KrqG0')
@@ -17,6 +17,10 @@ export default class Map extends Component {
         destination: null,
         duration: null,
         location: null
+    }
+
+    constructor(props){
+        super(props)
     }
 
     getPixelSize(pixels){
@@ -81,10 +85,10 @@ export default class Map extends Component {
                                     this.setState({duration: Math.floor(result.duration)})
                                     this.mapView.fitToCoordinates(result.coordinates, {
                                         edgePadding: {
-                                            right: this.getPixelSize(50),
-                                            left: this.getPixelSize(50),
-                                            top: this.getPixelSize(50),
-                                            bottom: this.getPixelSize(50)
+                                            right: this.getPixelSize(20),
+                                            left: this.getPixelSize(20),
+                                            top: this.getPixelSize(20),
+                                            bottom: this.getPixelSize(290)
                                         }
                                     })
                                 }}
@@ -105,7 +109,7 @@ export default class Map extends Component {
                     )}
                 </MapView>
                 
-                <Search onLocationSelected={this.handleLocationSelected}/>
+                {destination ? (<Details />) : (<Search onLocationSelected={this.handleLocationSelected}/>)}
             </View>
         )
     }

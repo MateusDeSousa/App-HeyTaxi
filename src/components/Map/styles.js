@@ -29,7 +29,7 @@ export const LocationText = Styled.Text`
 `;
 
 export const LocationTimeBox = Styled.View`
-    background: #222;
+    background: #666699;
     padding: 3px 8px;
 `
 export const LocationTimeText = Styled.Text`
