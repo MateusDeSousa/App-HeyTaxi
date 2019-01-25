@@ -45,3 +45,33 @@ export const LocationTimeTextSmall = Styled.Text`
     font-weight:bold;
     text-align: center;
 `
+
+export const BackButton = Styled.TouchableOpacity`
+    
+    background: #666699;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+`
+
+export const BackButtonText = Styled.Text`
+    color: #FFF;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 6px;
+`
+export const BackButtonContainer = Styled.View`
+    background: #FFF;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    shadow-color: #000;
+    shadow-offset: 0 0;
+    shadow-opacity: 0.2;
+    shadow-radius: 10;
+    elevation: 0.3;
+    align-items: center;
+    padding: 0 24px;
+
+`

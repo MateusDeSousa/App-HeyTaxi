@@ -6,7 +6,7 @@ import Details from '../Details/index'
 import {Platform, PixelRatio, BackHandler} from 'react-native'
 import { View } from 'react-native';
 import markerImage from '../../assets/IconeChegada.png'
-import {LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall} from './styles'
+import {LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall, BackButton, BackButtonText, BackButtonContainer} from './styles'
 import Geocoder from 'react-native-geocoding';
 
 Geocoder.init('AIzaSyDzqc1dyShJJRsnSTaYBTNtTd_gi2KrqG0')
@@ -64,6 +64,10 @@ export default class Map extends Component {
             }
         })
     }
+
+    handleBack = () => {
+        this.setState({destination: null})
+    }
     
     render (){
         const {region, destination, duration, location} = this.state
@@ -109,7 +113,18 @@ export default class Map extends Component {
                     )}
                 </MapView>
                 
-                {destination ? (<Details />) : (<Search onLocationSelected={this.handleLocationSelected}/>)}
+                {destination ? (
+                    <Fragment>
+                        <BackButtonContainer>
+                            <BackButton onPress={this.handleBack}>
+                                <BackButtonText>
+                                    Escolher outro destino
+                                </BackButtonText>
+                            </BackButton>
+                        </BackButtonContainer>
+                        <Details />
+                    </Fragment>
+                ) : (<Search onLocationSelected={this.handleLocationSelected}/>)}
             </View>
         )
     }

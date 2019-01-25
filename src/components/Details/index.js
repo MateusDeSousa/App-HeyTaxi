@@ -18,11 +18,6 @@ export default class Details extends Component {
                 Solicitar Taxi
             </RequestButtonText>
         </RequestButton>
-        <RequestButton onPress={() => {}}>
-            <RequestButtonText>
-                Escolher outro destino
-            </RequestButtonText>
-        </RequestButton>
     </Container>;    
   }
 }
