@@ -1,6 +1,8 @@
 # `HeyTaxi`
 
 ### Version 1.0
+
+<img src = "https://github.com/MateusDeSousa/HeyTaxi/blob/master/imagesGit/Captura1Android.png" width = 190px /> <img src = "https://github.com/MateusDeSousa/HeyTaxi/blob/master/imagesGit/Captura2Android.png" width = 190px /> <img src = "https://github.com/MateusDeSousa/HeyTaxi/blob/master/imagesGit/Captura1IOS.png" width = 190px /> <img src = "https://github.com/MateusDeSousa/HeyTaxi/blob/master/imagesGit/Captura2IOS.png" width = 190px />
  
 Native application for both IOS and Android developed on the Reack Native framework.
 
@@ -25,3 +27,4 @@ Application in the same footprint as the Uber, more can later become another opt
 >[`react-native-maps-directions`](https://github.com/bramus/react-native-maps-directions)
 
 >[`styled-components`](https://github.com/styled-components/styled-components)
+ 
