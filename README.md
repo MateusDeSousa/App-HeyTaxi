@@ -8,7 +8,7 @@ Application is still in version 1.0, there are still some bugs to be arranged.
 
 developed solely for learning the language of JavaScript and React Native. Subsequent collaborations to make the project more robust are always good lives.
 
-A priori application is in the same footprint as Uber, but in the future it may become another option for alternative taxis with some additional difference depending on the features that will be added and the rules of business.
+Application in the same footprint as the Uber, more can later become another option for alternative taxis with some additional difference, depending on the features that will be added and the rules of business.
 
 ## Project Fork
 
